@@ -1,0 +1,14 @@
+{% extends 'homepage/layout.html' %}
+
+{% block content %}
+<div class="form-group">
+    <form method="post">
+        <h1>Add a new blog here</h1>
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button>Post</button>
+    </form>
+    <br>
+
+</div>
+{% endblock %}

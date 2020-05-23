@@ -1,0 +1,29 @@
+{% extends 'homepage/layout.html' %}
+
+{% block content %}
+    <div class="content">
+        <h3>POST</h3>
+        <ul>
+        {% for post in object_list %}
+            <li>
+                <a href="{% url 'theblog:detailpost' post.pk %}">{{post.title}} | </a>
+                <a href="{% url 'theblog:edit_post' post.pk %}" class="">Edit this post Here</a>
+                <br>
+                    <ul>
+                        <li><small>By: {{post.author.username}} </small></li>
+                        <li><small>Email: {{post.author.email}}</small></li>
+                        <li><small>Date: {{post.time}}</small></li>
+                    </ul>
+                <a href="{% url 'theblog:remove_post' post.pk %}" class="">Delete This Post</a>
+                <hr>
+            </li>
+
+
+
+
+        {% endfor %}
+
+        </ul>
+        <a href="{% url 'theblog:add_post' %}" class="btn btn-primary btn-sm">add a new blog</a>
+    </div>
+{% endblock %}
